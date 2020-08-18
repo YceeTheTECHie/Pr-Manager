@@ -5,10 +5,6 @@ import SignedOutLinks from './SignedoutLinks';
 import { connect } from 'react-redux'
 const Navbar = () => {
 
-		const handleClick = () => {
-			console.log("working");
-		}
-
 	return (
 	<section class="fluid-container">
 			<nav class=" navbar navbar-expand-lg navbar-white bg-white" id="ftco-navbar">
@@ -24,7 +20,7 @@ const Navbar = () => {
 	        	<li class="nav-item"><a href="teacher.html" class="nav-link">Events</a></li>
 	        	<li class="nav-item"><a href="courses.html" class="nav-link">Gallery</a></li>
 	        	<li class="nav-item"><a href="pricing.html" class="nav-link">News</a></li>
-	        	
+				<SignedinLinks/>
 	        </ul>
 	      </div>
 	    </div>
