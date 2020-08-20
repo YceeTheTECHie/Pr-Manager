@@ -6,33 +6,22 @@ import { connect } from 'react-redux'
 const Navbar = () => {
 
 	return (
-	<section class="fluid-container">
-			<nav class=" navbar navbar-expand-lg navbar-white bg-white" id="ftco-navbar">
-	    <div class="container d-flex align-items-center ">
-	    	<a class="navbar-brand logotext" href="index.html"><span class="fluid-container">Pr Manager</span></a>
-				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-	        <span class="spans"></span><span class="spans">Menu</span>
-	      </button>
-		  <div class=" collapse navbar-collapse" id="ftco-nav">
-	        <ul class="navbar-nav ml-auto">
-	        	<li class="nav-item active"><a href="index.html" class="nav-link pl-0">Home</a></li>
-	        	<li class="nav-item"><a href="about.html" class="nav-link">About Us</a></li>
-	        	<li class="nav-item"><a href="teacher.html" class="nav-link">Events</a></li>
-	        	<li class="nav-item"><a href="courses.html" class="nav-link">Gallery</a></li>
-	        	<li class="nav-item"><a href="pricing.html" class="nav-link">News</a></li>
-				<SignedinLinks/>
-	        </ul>
-	      </div>
-	    </div>
-	  </nav>
-	</section>
+	<header>
+		<figure class="brand">PR Manager</figure>
+        <nav class="menu">
+            <input type="checkbox" id="menuToggle"/>
+            <label for="menuToggle" class="menu-icon"><i class="fa fa-bars"></i></label>
+			<ul><SignedinLinks/><SignedOutLinks/></ul>
+			
+			</nav>
+	</header>
     );
 }
  
 const mapStateToProps = (state) => {
 	console.log(state);
 	return {
-
+		auth: state.firebase.auth
 	}
 }
 export default connect(mapStateToProps) (Navbar);
