@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import signinimg from '../../Images/signin-image.jpg';
 import { connect } from 'react-redux'
-import {signin }from '../../Store/Actions/authActions'
+import {signIn }from '../../Store/Actions/authActions'
 import '../../css/authstyles.css'
+import {Redirect} from 'react-router-dom'
 class SignIn extends Component {
     state = {
         email : '',
@@ -11,6 +12,7 @@ class SignIn extends Component {
 
     handleSubmit = e => {
         e.preventDefault();
+        console.log(this.state);
         this.props.signin(this.state)
     }
 
@@ -21,7 +23,8 @@ class SignIn extends Component {
         console.log(this.state);
     }
     render() { 
-        const {authError} = this.props
+        const {authError,auth} = this.props;
+        if (auth.id) return <Redirect to="/"/>
         return (
             <section class="sign-in">
             <div class="container">
@@ -76,13 +79,14 @@ class SignIn extends Component {
 }
 const mapStateToProps = (state) => {
     return {
-        authError : state.auth.authError
+        authError : state.auth.authError,
+        auth:state.firebase.auth
     }
 }  
 
 const mapDispatchToProps = (dispatch) => {
 return {
-    signin: (Credentials) => dispatch(signin(Credentials))
+    signin: (Credentials) => dispatch(signIn(Credentials))
 }
 }
 

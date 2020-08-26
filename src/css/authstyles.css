@@ -1,14 +1,147 @@
 
+
+
+.heading{
+  margin-top:2.5em;
+  font-size: 32px;
+  margin-left:6em;
+  font-weight: lighter;
+  font-family: 'Montserrat',sans-serif;
+} 
+
+
+.form-group {
+  position: relative; 
+   margin-bottom:10px; 
+   overflow: hidden; 
+  margin-left:3em;
+}
+
+
+input, select, textarea {
+  
+
+  outline: none;
+  appearance: unset !important;
+  -moz-appearance: unset !important;
+  -webkit-appearance: unset !important;
+  -o-appearance: unset !important;
+  -ms-appearance: unset !important; }
+  
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
+  appearance: none !important;
+  -moz-appearance: none !important;
+  -webkit-appearance: none !important;
+  -o-appearance: none !important;
+  -ms-appearance: none !important;
+  margin: 0;
+}
+  
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  box-shadow: none !important;
+  -moz-box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  -o-box-shadow: none !important;
+  -ms-box-shadow: none !important;
+}
+input {
+  width: 100%;
+  display: block;
+  border: none;
+  border-bottom: 1px solid #999;
+  padding: 6px 30px ;
+  margin-bottom: 7em;
+  font-family: 'Montserrat';
+  box-sizing: border-box; }
+  input::-webkit-input-placeholder {
+    font-size: 20px;
+    color: #999; }
+  input::-moz-placeholder {
+    color: #999;
+    font-size: 20px
+  }
+  input:-ms-input-placeholder {
+    color: #999; 
+    font-size: 20px}
+  input:-moz-placeholder {
+    color: #999; 
+    font-size: 20px}
+  input:focus {
+    border-bottom: 1px solid #222; }
+    input:focus::-webkit-input-placeholder {
+      color: #222; }
+    input:focus::-moz-placeholder {
+      color: #222; }
+    input:focus:-ms-input-placeholder {
+      color: #222; }
+    input:focus:-moz-placeholder {
+      color: #222; }
+
+.signup-image {
+  width:auto;
+  margin-top:7em;
+  margin-left:9em;
+}
+
+.form-submit {
+  display: inline-block;
+  font-family: 'Montserrat';  
+  background: #6675df;
+  color: #fff;
+  border-bottom: none;
+  width: 404px;
+  padding: 15px 39px;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -o-border-radius: 5px;
+  -ms-border-radius: 5px;
+  margin-top: 2px;
+  cursor: pointer; }
+  
+  .form-submit:hover {
+    background: #4292dc; }
+
+    .signup-image-link {
+      font-size: 14px;
+      color: #222;
+      display: block;
+      text-align: center;
+      margin-top:30px;
+  }
+
+  @media screen and (max-width: 570px) {
+    .overall{
+      /* background-color: black; */
+      padding:0 auto;
+    }
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* signup */
-.container {
+/* .container {
     width: 900px;
     background: #fff;
     margin: 0 auto;
-    /* box-shadow: 0px 15px 16.83px 0.17px rgba(0, 0, 0, 0.05);
-    -moz-box-shadow: 0px 15px 16.83px 0.17px rgba(0, 0, 0, 0.05);
-    -webkit-box-shadow: 0px 15px 16.83px 0.17px rgba(0, 0, 0, 0.05);
-    -o-box-shadow: 0px 15px 16.83px 0.17px rgba(0, 0, 0, 0.05);
-    -ms-box-shadow: 0px 15px 16.83px 0.17px rgba(0, 0, 0, 0.05); */
     border-radius: 20px;
     -moz-border-radius: 20px;
     -webkit-border-radius: 20px;
@@ -317,7 +450,7 @@ input[type=checkbox]:not(old):checked + label > span:before {
     .form-submit:hover {
         background: 2dc#4292dc; }
     
-  
+   */
       
 
 
@@ -371,7 +504,7 @@ input[type=checkbox]:not(old):checked + label > span:before {
 
 
 /* media queries     */
-@media screen and (max-width: 1200px) {
+/* @media screen and (max-width: 1200px) {
     .container {
       width: calc( 100% - 30px);
       max-width: 100%; } }
@@ -395,10 +528,10 @@ input[type=checkbox]:not(old):checked + label > span:before {
       margin-left: 0px;
       margin-right: 0px;
       padding-left: 0px;
-      /* box-sizing: border-box; */
-      padding: 0 30px; }
-  
-    .signin-image {
+       box-sizing: border-box; */
+       /* padding: 0 30px;
+       } */
+    /* .signin-image {
       margin-left: 0px;
       margin-right: 0px;
       margin-top: 50px;
@@ -423,7 +556,7 @@ input[type=checkbox]:not(old):checked + label > span:before {
   
     .form-title {
        /* text-align: center;                                                                  */
-    } 
+    /* } 
 }
   
 @media (max-width: 600px) {
@@ -435,4 +568,4 @@ input[type=checkbox]:not(old):checked + label > span:before {
     width:auto;
   padding-right:200px;
 }
-}
+}    */

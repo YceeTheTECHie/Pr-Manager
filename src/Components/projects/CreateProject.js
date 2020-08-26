@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import sideimg from '../../Images/work6.svg';
 import {createProject} from '../../Store/Actions/projectActions';
+import {Redirect} from 'react-router-dom'
+
 import {connect} from 'react-redux';
 class CreateProject extends Component {
     state = {
@@ -21,7 +23,9 @@ class CreateProject extends Component {
       this.props.createProject(this.state)
     }
     render() { 
-        return (        
+      const {auth} =  this.props;
+      if (!auth.id) return <Redirect to='/signup'/>
+      return (        
           <div className="container">
               <div className="row">
                     <div className="col-md-6">
@@ -73,6 +77,12 @@ const mapDispatchToProps = (dispatch) => {
   createProject: (project) => dispatch(createProject(project))
   }
 }
+
+const mapStateToProps = (state) => {
+  return {
+    auth:state.firebase.auth
+  }
+}
  
  
-export default connect(null, mapDispatchToProps)(CreateProject);
+export default connect(mapStateToProps, mapDispatchToProps)(CreateProject);

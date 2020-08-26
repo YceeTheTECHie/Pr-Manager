@@ -1,7 +1,10 @@
 import React from 'react';
+import {Redirect } from 'react-router-dom'
+import {connect} from 'react-redux'
 const ProjectDetails = (props) => {
     const id = props.match.params.id
-
+    const {auth} = this.props;
+    // if (!auth.id) return <Redirect to="/signin"/>
     return (
         <React.Fragment> 
 
@@ -25,5 +28,12 @@ const ProjectDetails = (props) => {
         </React.Fragment>
     );
 }
+//     const mapStateToProps = (state) => {
+//         return {
+//         auth:state.firebase.auth
+//     }
+// }
+
+
  
 export default ProjectDetails;
