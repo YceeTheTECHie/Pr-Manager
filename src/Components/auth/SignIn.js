@@ -3,7 +3,7 @@ import signinimg from '../../Images/signin-image.jpg';
 import { connect } from 'react-redux'
 import {signIn }from '../../Store/Actions/authActions'
 import '../../css/authstyles.css'
-import {Redirect} from 'react-router-dom'
+import {Redirect, NavLink} from 'react-router-dom'
 class SignIn extends Component {
     state = {
         email : '',
@@ -24,55 +24,46 @@ class SignIn extends Component {
     }
     render() { 
         const {authError,auth} = this.props;
-        if (auth.id) return <Redirect to="/"/>
+        const msg = "Email or password incorrect";
+        if (auth.uid) return <Redirect to='/'/>
         return (
-            <section class="sign-in">
-            <div class="container">
+            <div className=" container ">
+            <div className="row">
+                <div className="col-sm top col-md col-lg col-xl">
+                    
+                    <h2 style = {{fontFamily:'Montserrat',marginTop:'4em'}}>Sign In</h2>
+                    <h6 style = {{marginLeft:'4em'}}>{authError ? msg : null}</h6>
+                    <form onSubmit = {this.handleSubmit} className="register-form">
+                       
+                         <div className="form-group">
+                             <label for="email"><i className="zmdi zmdi-email"></i></label>
+                             <input type="email" name="email" id="email" placeholder="Your Email" onChange={this.handleChange}/>
+                         </div>
+                         <div className="form-group">
+                             <label for="pass"><i className="zmdi zmdi-lock"></i></label>
+                             <input type="password" name="password" id="pass" placeholder="Password" onChange={this.handleChange}/>
+                         </div>
+                       
+                         
+                        <div className="form-group form-button">
+                             <input type="submit" name="signup" id="signup" className="form-submit" value="Log in"/>
+                         </div>
+                     <NavLink to ='/signin' className="signup-image-link">I am already member</NavLink>
 
-                <div class="signin-content">
-                    <div className = "error">
-                    {authError ? <h5>{authError}</h5>: null}
-                    </div>
-                    <div class="signin-image">
-                    <img src={signinimg} alt="sing up"/>
-                    <a href="#" className="signup-image-link">Create an account</a>
-                    </div>
-
-                    <div className="signin-form">
-                        <h2 className="form-title">Sign In </h2>
-                        <form onSubmit = {this.handleSubmit} class="register-form">
-                            <div class="form-group">
-                                <label for="your_name"><i className="zmdi zmdi-account material-icons-name"></i></label>
-                                <input type="text" name="email"  placeholder="Your Name" onChange = {this.handleChange}/>
-                            </div>
-                            <div className="form-group">
-                                <label for="your_pass"><i className="zmdi zmdi-lock"></i></label>
-                                <input type="password" name="password" placeholder="Password"  onChange = {this.handleChange}/>
-                            </div>
-                            <div className="form-group">
-                                <input type="checkbox" name="remember-me" id="remember-me" className="agree-term" />
-                                <label for="remember-me" className="label-agree-term"><span><span></span></span>Remember me</label>
-                            </div>
-                            <div className="form-group form-button">
-                                <input type="submit" name="signin" id="signin" className="form-submits" value="Log in"/>
-                            </div>
-                        </form>
-                        <div className="social-login">
-
-                            <span className="social-label">Or login with</span>
-                            <ul className="socials">
-                                <li><a href="#"><i className="display-flex-center zmdi zmdi-facebook"></i></a></li>
-                                <li><a href="#"><i className="display-flex-center zmdi zmdi-twitter"></i></a></li>
-                                <li><a href="#"><i className="display-flex-center zmdi zmdi-google"></i></a></li>
-                            </ul>
-
-                        </div>
-                    </div>
+                    </form>
+                </div>
+                
+                <div className="signup-image col-sm col-md col-lg col-xl">
+                    
+                        <img  className= "img-fluid"src={signinimg} alt="sign up"/>
+                   
                 </div>
             </div>
-        </section>
 
             
+        </div>
+    
+  
     
         );
     }

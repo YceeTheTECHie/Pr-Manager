@@ -3,27 +3,33 @@ import Notifications from './Notifications'
 import ProjectList from '../projects/ProjectList';
 import { connect } from 'react-redux'
 import {Redirect} from 'react-router-dom'
+import {firestoreConnect} from 'react-redux-firebase'
+import {compose} from 'redux'
 class Dashboard extends Component {
-    state = {  }
     render() { 
         
         const {projects, auth} = this.props;
-        if (!auth.id) return <Redirect to='/signup'/>
+        if (!auth.uid) return <Redirect to='/signup'/>
         return (
-            <div>  
-                <main className="grid">
+          <React.Fragment>  
+                
                     <ProjectList projects={projects}/>     
                     {/* <Notifications/>   */}
-              </main>      
-                        </div>
+              
+            </React.Fragment>
         );
     }
 }
 const mapStateToProps = (state) => {
 return {
-    projects: state.project.projects,
+    projects: state.firestore.ordered.projects,
     auth: state.firebase.auth 
 }    
 }
 
-export default connect(mapStateToProps)(Dashboard);
+export default compose(
+    connect(mapStateToProps),
+    firestoreConnect([
+        {collection: 'projects'} 
+    ])
+)(Dashboard);

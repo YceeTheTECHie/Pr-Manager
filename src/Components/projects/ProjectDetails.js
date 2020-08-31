@@ -1,39 +1,48 @@
 import React from 'react';
 import {Redirect } from 'react-router-dom'
 import {connect} from 'react-redux'
-const ProjectDetails = (props) => {
-    const id = props.match.params.id
-    const {auth} = this.props;
-    // if (!auth.id) return <Redirect to="/signin"/>
-    return (
-        <React.Fragment> 
-
+import {firestoreConnect} from 'react-redux-firebase'
+import {compose} from 'redux'
+const ProjectDetails = () => {
+    
+    const {project,auth} = this.props;
+    if (!auth.uid) return <Redirect to="/signin"/>
+    if (project){
+        return (
+            <React.Fragment> 
                 <article>
-                    <h1>Project {id} </h1>
-                <h3>Project  Seamlessly visualize quality</h3>
-                <p>Project  Collaboratively administrate empowered markets via plug-and-play networks.</p>
-                <p>Project  Collaboratively administrate empowered markets via plug-and-play networks.</p>
-                <p>Project  Collaboratively administrate empowered markets via plug-and-play networks.</p>
+                    <h1> {project.id} </h1>
+                <h3>{project.content}</h3>
+                <span>{project.authorLastName}</span>
+                <span>{project.authorFirstName}</span>
              
         </article>
-     
-    <article>
-                <h2>pROJECT </h2>
-                <h3>Project   Seamlessly visualize quality</h3>
-                <p> Project  Collaboratively administrate empowered markets via plug-and-play networks.</p>
-                <p>Collaboratively administrate empowered markets via plug-and-play networks.</p>
-                <p>Collaboratively administrate empowered markets via plug-and-play networks.</p>
-                
-    </article>
         </React.Fragment>
-    );
+        )
+    }
+    else{
+        return (
+            <div>Loading...</div>            
+        );
+    }
+    
 }
-//     const mapStateToProps = (state) => {
-//         return {
-//         auth:state.firebase.auth
-//     }
-// }
+    const mapStateToProps = (state, ownProps) => {
+        const id = ownProps.match.params.id;
+        const projects = state.firestore.data.projects;
+        const project = projects ? projects[id] : null;
+        return {
+        auth:state.firebase.auth,
+        project: project
+    }
+}
 
 
  
-export default ProjectDetails;
+export default compose(
+    connect(mapStateToProps),
+    firestoreConnect([
+        {collection:'project'}
+    ])
+) 
+(ProjectDetails);

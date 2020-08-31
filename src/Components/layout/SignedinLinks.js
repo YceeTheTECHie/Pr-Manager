@@ -3,11 +3,11 @@ import {connect} from 'react-redux'
 import {signOut} from '../../Store/Actions/authActions'
 import { NavLink } from 'react-router-dom'
 const SignedinLinks = (props) => {
-    const signOut = props;
+    const {signOut} = props;
     return (
         <ul>     
             <li><NavLink to='/create'>Create Project</NavLink></li>
-            <li><a href = "#" onClick = {props.signOut}>Sign Out</a></li>
+            <li><a onClick = {props.signOut}>Sign Out</a></li>
             <li><NavLink to='/'>BG</NavLink></li>
         </ul>
     );
