@@ -31,8 +31,8 @@ class SignUp extends Component {
     render() { 
         return (
 
-                <div className=" container ">
-                    <div className="row ">
+                <div className="container">
+                    <div className="row">
                         <div className="col-sm top col-md col-lg col-xl ">
                         
                             <h2 style = {{fontFamily:'Montserrat',paddingRight: '2em',marginTop:'2em'}}>Sign Up</h2>

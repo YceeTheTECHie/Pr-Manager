@@ -4,13 +4,15 @@ import ProjectList from '../projects/ProjectList';
 import { connect } from 'react-redux'
 import {Redirect} from 'react-router-dom'
 import {firestoreConnect} from 'react-redux-firebase'
+import '../../css/loader.css'
 import {compose} from 'redux'
 class Dashboard extends Component {
     render() { 
         
         const {projects, auth} = this.props;
         if (!auth.uid) return <Redirect to='/signup'/>
-        return (
+        if (projects){
+             return (
           <React.Fragment>  
                 
                     <ProjectList projects={projects}/>     
@@ -18,6 +20,17 @@ class Dashboard extends Component {
               
             </React.Fragment>
         );
+        }
+        else{
+            return (
+                <div class="load-4">
+                  
+                    <div class="ring-1"></div>
+                </div>
+                
+            );
+        }
+       
     }
 }
 const mapStateToProps = (state) => {

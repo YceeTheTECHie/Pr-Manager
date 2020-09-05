@@ -5,13 +5,18 @@ const ProjectSummary = ({project}) => {
     console.log(project.title)
     return (
         
-        <div className="card">
-                   <h2> {project.content} </h2>
-                    <div className="container">
-                        <h2> {project.title} </h2>
-                        <h2> created by </h2>
-                        <p>Last seen by</p> 
-                   </div>
+        <div class="container"><br/>
+        <div class="card-deck">
+          <div class="card">
+         
+            <div class="card-body">
+              <h5 class="card-title">{project.title}</h5>
+              <p class="card-text">{project.content}</p>
+              <p class="card-text"><small class="text-muted">created by {}</small></p>
+              <p class="card-text"><small class="text-muted">poster last seen {}</small></p>
+            </div>
+          </div>
+        </div>
         </div>
     );
 }

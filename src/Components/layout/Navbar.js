@@ -8,6 +8,7 @@ const Navbar = (props) => {
 	const {auth} = props;
 	return (
 	<header>
+	<div className="container-fluid">
 		<figure className="brand">PR Manager</figure>
         <nav className="menu">
             <input type="checkbox" id="menuToggle"/>
@@ -15,6 +16,7 @@ const Navbar = (props) => {
 		<ul>{auth.uid ? <SignedinLinks/> : <SignedOutLinks/> }</ul>
 			
 			</nav>
+	</div>
 	</header>
     );
 }

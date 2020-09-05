@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import sideimg from '../../Images/work6.svg';
 import {createProject} from '../../Store/Actions/projectActions';
-import {Redirect,useHistory} from 'react-router-dom'
-
+import {Redirect,useHistory} from 'react-router-dom';
 import {connect} from 'react-redux';
+
 class CreateProject extends Component {
     state = {
       title : '',
@@ -12,8 +12,7 @@ class CreateProject extends Component {
 
     handleChange = e => {
       this.setState({
-         [e.target.name] : e.target.value
-      
+         [e.target.name] : e.target.value 
       })
      
     }
