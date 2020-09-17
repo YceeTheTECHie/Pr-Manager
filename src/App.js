@@ -1,6 +1,7 @@
 import React from 'react';
 import {BrowserRouter, Switch,Route} from 'react-router-dom';
 import Navbar from '../src/Components/layout/Navbar'
+import Footer from '../src/Components/layout/Footer'
 import Dashboard from './Components/dashboard/Dashboard';
 import ProjectDetails from './Components/projects/ProjectDetails'
 import CreateProject from './Components/projects/CreateProject';
@@ -18,6 +19,7 @@ const App = () => {
         <Route path='/signin'component={SignIn} />
 
     </Switch>
+    <Footer/>
     </BrowserRouter>
     );
 }

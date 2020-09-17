@@ -3,7 +3,7 @@ import signupimg from '../../Images/signup-image.jpg';
 import {signUp} from '../../Store/Actions/authActions'
 import {connect} from 'react-redux'
 import '../../css/authstyles.css';
-import {NavLink} from 'react-router-dom';   
+import {NavLink,Redirect} from 'react-router-dom';   
 class SignUp extends Component {
     state = {
         firstName: '',
@@ -26,11 +26,11 @@ class SignUp extends Component {
             this.props.signUp(this.state)
     }
 
-
-    
     render() { 
+        const {authError,auth} = this.props;
+        if (auth.uid) return <Redirect to='/'/>
+        
         return (
-
                 <div className="container">
                     <div className="row">
                         <div className="col-sm top col-md col-lg col-xl ">
@@ -82,7 +82,8 @@ class SignUp extends Component {
 }
 const mapStateToProps = (state) => {
     return {
-           auth : state.firebase.auth
+           auth : state.firebase.auth,
+        authError : state.auth.authError
     }
 }
 

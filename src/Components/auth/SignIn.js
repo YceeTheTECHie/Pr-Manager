@@ -3,7 +3,9 @@ import signinimg from '../../Images/signin-image.jpg';
 import { connect } from 'react-redux'
 import {signIn }from '../../Store/Actions/authActions'
 import '../../css/authstyles.css'
+import Footer from '../layout/Footer'
 import {Redirect, NavLink} from 'react-router-dom'
+
 class SignIn extends Component {
     state = {
         email : '',
@@ -27,6 +29,7 @@ class SignIn extends Component {
         const msg = "Email or password incorrect";
         if (auth.uid) return <Redirect to='/'/>
         return (
+        <React.Fragment>
             <div className=" container ">
             <div className="row">
                 <div className="col-sm top col-md col-lg col-xl">
@@ -62,8 +65,8 @@ class SignIn extends Component {
 
             
         </div>
-    
-  
+       <Footer/>
+        </React.Fragment>
     
         );
     }
