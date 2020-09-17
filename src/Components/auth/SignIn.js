@@ -35,7 +35,7 @@ class SignIn extends Component {
                 <div className="col-sm top col-md col-lg col-xl">
                     
                     <h2 style = {{fontFamily:'Montserrat',marginTop:'4em'}}>Sign In</h2>
-                    <h6 style = {{marginLeft:'4em'}}>{authError ? msg : null}</h6>
+                    <h6 style = {{marginLeft:'4em', color:'red'}}>{authError ? msg : null}</h6>
                     <form onSubmit = {this.handleSubmit} className="register-form">
                        
                          <div className="form-group">
