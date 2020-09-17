@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import {signIn }from '../../Store/Actions/authActions'
 import '../../css/authstyles.css'
 import Footer from '../layout/Footer'
-import {Redirect, NavLink} from 'react-router-dom'
+import {NavLink, Redirect} from 'react-router-dom'
 
 class SignIn extends Component {
     state = {
@@ -50,8 +50,10 @@ class SignIn extends Component {
                          
                         <div className="form-group form-button">
                              <input type="submit" name="signup" id="signup" className="form-submit" value="Log in"/>
-                         </div>
-                     <NavLink to ='/signin' className="signup-image-link">I am already member</NavLink>
+                    
+                     </div>
+
+                     <NavLink to ='/signup' className="signup-image-link">Not a member?</NavLink>
 
                     </form>
                 </div>
