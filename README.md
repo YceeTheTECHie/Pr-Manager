@@ -1,3 +1,8 @@
+This is an application for managing projects across small team, it was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+In this project, I made use of react, react-dom,redux,react-redux,  firebase, firestore, react-redux-firebase, redux-firestore and redux-thunk
+
+
 
 
 
