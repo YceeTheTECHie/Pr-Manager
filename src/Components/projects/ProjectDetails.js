@@ -10,16 +10,20 @@ const ProjectDetails = (props) => {
     if (!auth.uid) return <Redirect to="/signin"/>
     if (project){
         return (
-            <React.Fragment> 
-                <article>
-                    <h1> {project.id} </h1>
-                    <h1> {project.title} </h1>
-                <h3>{project.content}</h3>
-                <span>{project.authorLastName}</span>
-                <span>{project.authorFirstName}</span>
-             
-        </article>
-        </React.Fragment>
+    <React.Fragment>    
+        <div  class="container"><br/>
+        <div class="card-deck">
+          <div class="card">
+              <div class="card-body">
+              <h5 class="card-title">{project.title}</h5>
+              <p class="card-text">{project.content}</p>
+              <p class="card-text"><small class="text-muted">created by {project.authorFirstName} {project.authorLastName}</small> <small class="text-muted">poster last seen {}</small></p>
+            </div>
+          </div>
+        </div>
+        </div> 
+            
+    </React.Fragment>
         )
     }
     else{
@@ -40,7 +44,7 @@ const ProjectDetails = (props) => {
         return {
         auth:state.firebase.auth,
         project: project
-    }
+        }
 }
 
 
@@ -49,6 +53,4 @@ export default compose(
     connect(mapStateToProps),
     firestoreConnect([
         {collection:'projects'}
-    ])
-) 
-(ProjectDetails);
+    ]))(ProjectDetails)

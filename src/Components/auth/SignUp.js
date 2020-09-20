@@ -21,10 +21,10 @@ class SignUp extends Component {
     }
     handleSubmit = e => {
         e.preventDefault();
+        this.props.signUp(this.state)
+        
         if (this.state.password === this.state.rePassword)
-            console.log('match found');
-            this.props.signUp(this.state)
-    }
+            console.log('match found');}
 
     render() { 
         const {authError,auth} = this.props;

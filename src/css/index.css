@@ -5,6 +5,7 @@
 
 a {
   text-decoration: none;
+  color:white !important ;
 }
 
 li {
@@ -25,9 +26,10 @@ header {
 .link:hover{
   color:white !important;
 }
+
 .brand {
   width: auto;
-  color:white;
+  color:white !important;
   height: 100%;
   float: left;
   /* margin-bottom: 20px; */

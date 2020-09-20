@@ -19,8 +19,9 @@ class CreateProject extends Component {
 
     submitForm = e => {
       e.preventDefault();
-      this.props.createProject(this.state)
-      this.props.history.push('/');
+      this.props.createProject(this.state);
+      
+      this.props.history.push("/");
     }
     render() { 
       const {auth} =  this.props;
@@ -37,11 +38,11 @@ class CreateProject extends Component {
                       <br/>
                         <form onSubmit = {this.submitForm} className= "form">
                       <div className="form-group">
-                      <label htmlFor="title"> Title :</label>
                       <br/>
                       <input
                         name ="title"
                         type="text" 
+                        placeholder="Title"
                         className="form-control"
                         onChange = {this.handleChange}
                        /> 
@@ -50,9 +51,9 @@ class CreateProject extends Component {
                     </div>
                       <div className="form-group">
                       
-                          <label htmlFor="content">Content:</label>
                           <textarea 
                               name="content" 
+                              placeholder="Content"
                               type="text" 
                               className="form-control"
                               onChange = {this.handleChange}

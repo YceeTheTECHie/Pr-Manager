@@ -4,10 +4,18 @@
   display: block ;
   width:60%;
 }
-
+.card-title{
+  color: blue;
+}
+small {
+  font-size: 2em !important;
+}
+.card-text{
+  margin-bottom: 1em;
+}
 a:link, a:visited, a:hover { text-decoration: none !important;  }
 .card-deck .card {
-  margin: 0 0 1rem;
+  /* margin: 0 0 1rem; */
 }
 
 @media (min-width: 576px) and (max-width: 767.98px) {

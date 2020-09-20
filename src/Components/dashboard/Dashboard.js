@@ -9,7 +9,8 @@ import {compose} from 'redux'
 class Dashboard extends Component {
     render() { 
         
-        const {projects, auth} = this.props;
+        const {projects, auth,time} = this.props;
+        console.log(time);
         if (!auth.uid) return <Redirect to='/signup'/>
         if (projects){
              return (
@@ -25,7 +26,6 @@ class Dashboard extends Component {
             return (
                 <div className="load-4">
                   
-                    <div className="ring-1"></div>
                 </div>
                 
             );
@@ -36,13 +36,13 @@ class Dashboard extends Component {
 const mapStateToProps = (state) => {
 return {
     projects: state.firestore.ordered.projects,
-    auth: state.firebase.auth 
-}    
+    auth: state.firebase.auth,
+}   
 }
 
 export default compose(
     connect(mapStateToProps),
     firestoreConnect([
-        {collection: 'projects'} 
+        {collection: 'projects', orderBy : ['createdAt', 'desc']} 
     ])
 )(Dashboard);
