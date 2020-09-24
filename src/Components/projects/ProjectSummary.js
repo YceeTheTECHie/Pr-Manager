@@ -12,7 +12,8 @@ const ProjectSummary = ({project}) => {
             <div class="card-body">
               <h5 class="card-title">{project.title}</h5>
               {/* <p class="card-text">{project.content}</p> */}
-              <p class="card-text"><small class="text-muted">created by {project.authorFirstName} {project.authorLastName}</small><small class="text-muted">Last Seen {moment(project.createdAt.toTime).hours()}</small></p>
+              <p class="card-text"><small class="text-muted">Created by <span className = "pr"> {project.authorFirstName} {project.authorLastName}</span></small></p>
+              {/* <br/><small class="text-muted">Last Seen {moment(project.createdAt.toDate()).calendar()}</small></p> */}
               {/* <p class="card--text"><small class="text-muted">poster last seen {}</small></p> */}
             </div>
           </div>

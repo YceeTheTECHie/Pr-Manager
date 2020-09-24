@@ -7,8 +7,11 @@
 .card-title{
   color: blue;
 }
+.pr{
+  color: blue;
+}
 small {
-  font-size: 2em !important;
+  font-size: 0.9em !important;
 }
 .card-text{
   margin-bottom: 1em;

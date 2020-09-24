@@ -29,6 +29,3 @@ const mapStateToProps = (state) => {
 	}
 }
 export default connect(mapStateToProps) (Navbar);
-
-
-{/* <img width = "20px" className="fa fa-bars"src={hamburger} ></img> */}
