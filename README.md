@@ -2,7 +2,7 @@ This is an application for managing projects across small team, it was bootstrap
 
 In this project, I made use of react, react-dom,redux,react-redux,  firebase, firestore, react-redux-firebase, redux-firestore and redux-thunk
 
-
+The app is live at https://pr-manager-5cc9c.web.app
 
 
 
